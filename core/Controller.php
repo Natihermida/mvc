@@ -4,8 +4,10 @@
 //abstracta para que nadie pueda crear objetos de esta clase
 
 abstract class Controller{
- abstract public function index();
-
+ abstract public function index(...$params);
+public function view($view, $data=[]){
+    require_once './app/views/' . $view . '.php';
+}
 
 }
 

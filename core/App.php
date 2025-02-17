@@ -1,4 +1,6 @@
 <?php
+namespace Formacom\Core;
+use Formacom\Core\Database;
 //controlador por defecto, se puede hacer aqui o en el constructor de la clase App
 class App{
     protected $controller="HomeController";//controlador por defecto

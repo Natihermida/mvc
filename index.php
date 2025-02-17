@@ -1,12 +1,6 @@
 <?php
-/*
-if(isset($_GET["url"])){
-    var_dump($_GET["url"]);
-
-}else{
-    echo "No hay url";
-}*/
-require_once './core/App.php';
+require_once './config/database.php';
+use Formacom\core\App;
 $app=new App();
 
 
