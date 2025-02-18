@@ -1,30 +1,29 @@
 <?php
 namespace Formacom\controllers;
 use Formacom\core\Controller;
-use Formacom\models\Actor;
+use Formacom\models\Film;
 
-class ActorController extends Controller{
+class FilmController extends Controller{
     public function index(...$params){//metodo por defecto los puntos indican que puedo meter + de un parametro
-       $actores=Actor::all();
-       $this->view("actor_list",$actores);
+       $films=Film::all();
+       $this->view("actor_list",$films);
     
         
-        //echo "Hola desde Index de ActorController";
     }
 
 public function new(...$params){
-    if(isset($_POST["first_name"])){
+    if(isset($_POST["title"])){
         var_dump($_POST);
         exit();
     }else{
-        $this->view("new_actor");
+        $this->view("new_film");
     }
 }
 
 public function json(){
-    $actores=Actor::where("first_name","like","P%")->get();
-    $datos=["mensaje"=>"Listado actores empiezan P",
-    "listado"=>$actores];
+    $films=Film::where("title")->get();
+    $datos=["mensaje"=>"Listado de peliculas",
+    "listado"=>$films];
 
     $jason=json_encode($datos);
     header("Content-Type: application/json");
