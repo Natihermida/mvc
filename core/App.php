@@ -3,17 +3,16 @@ namespace Formacom\Core;
 use Formacom\Core\Database;
 //controlador por defecto, se puede hacer aqui o en el constructor de la clase App
 class App{
-    protected $controller="HomeController";//controlador por defecto
+    protected $controller="Formacom\\Controllers\\HomeController";//controlador por defecto
     protected $method="index";//metodo por defecto
     protected $params=[];//parametros por defecto
 
     public function __construct(){
         $url=$this->parseUrl();//obtiene la url, esta variable es temporal porque esta en este metodo.
         if(file_exists('./app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
-            $this->controller = ucfirst($url[0]) . 'Controller';
+            $this->controller = "Formacom\\Controllers\\".ucfirst($url[0]) . 'Controller';
             unset($url[0]);
         }
-        require_once './app/controllers/' . $this->controller . '.php';//carga el controlador
         $this->controller = new $this->controller ;//crea un objeto del controlador
         //verificar metodo
         if(isset($url[1])) {

@@ -12,7 +12,7 @@ $capsule->addConnection([//configuracion de la base de datos
     'username' => DB_USER,
     'password' => DB_PASS,
     'charset' => 'utf8',
-    'collation' => 'utf8mb4_unicode_ci',
+    'collation' => 'utf8_unicode_ci',
     'prefix' => '',
 ]);
 $capsule->setAsGlobal();
